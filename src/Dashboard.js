@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Pagination from 'react-bootstrap/Pagination';
+import './Dashboard.css';
 
 
 const Dashboard = () => {
@@ -13,7 +14,9 @@ const Dashboard = () => {
      userName:'',
      username:'',
      email:'',
-     website:''
+     website:'',
+     company:'',
+     phone:''
   })
   
   const [show, setShow] = useState(false);
@@ -51,7 +54,7 @@ const Dashboard = () => {
             </div>  
             <div className="col-lg-11 col-md-6 col-sm-12">
               <h5 className="mt-3 mb-3 text-secondary text-center">
-               Check  Records of Employees
+                Employee Data
               </h5>
                 <div className=" mt-5">
                     <table className="table table-striped table-sm">
@@ -92,12 +95,12 @@ const Dashboard = () => {
   <>
       
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} dialogClassName="mod">
         <Modal.Header closeButton>
           <Modal.Title>Row No : {modeldata.id}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <table class="table table-striped table-sm">
+        <table class="table table-striped table" >
                         <thead class="thead-light">
                             <tr>
                                 <th>No</th>
@@ -105,7 +108,8 @@ const Dashboard = () => {
                                 <th>Username</th>
                                 <th>Email</th>
                                 <th>Website</th>
-                               
+                                <th>company</th>
+                                <th>Phone</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -115,6 +119,8 @@ const Dashboard = () => {
                               <td>{modeldata.username}</td>
                               <td>{modeldata.email}</td>
                               <td>{modeldata.website}</td>
+                              <td>{modeldata.company.name}</td>
+                              <td>{modeldata.phone}</td>
                                
                            </tr>
                           
